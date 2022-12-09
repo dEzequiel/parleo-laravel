@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Community;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,8 +17,10 @@ return new class extends Migration
         Schema::create('tag', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
 
-            $table->foreignId('community_id')
+            $table->foreignIdFor(Community::class)
                 ->constrained('community')
                 ->onDelete('cascade');
         });
