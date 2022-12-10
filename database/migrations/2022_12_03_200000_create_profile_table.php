@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Community;
+use App\Models\Position;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -15,19 +15,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('post', function (Blueprint $table) {
+        Schema::create('profile', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('content');
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at');
+            $table->timestamps();
 
             $table->foreignIdFor(User::class)
+                ->unique()
+                ->nullable()
                 ->constrained('users')
                 ->nullOnDelete();
 
-            $table->foreignIdFor(Community::class)
-                ->constrained('community')
+            $table->foreignIdFor(Position::class)
+                ->nullable()
+                ->constrained('position')
                 ->nullOnDelete();
         });
     }
@@ -39,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post');
+        Schema::dropIfExists('profile');
     }
 };
