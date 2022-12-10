@@ -21,10 +21,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // call factories
-        $this->call(UserSeeder::class);
-        $this->call(CommunitySeeder::class);
-        $this->call(TagSeeder::class);
-        $this->call(PostSeeder::class);
-        $this->call(CommentSeeder::class);
+/*        $this->call(CommunitySeeder::class);*/
+
     }
 }
