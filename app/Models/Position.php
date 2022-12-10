@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class Position extends Model
 {
     use HasFactory;
 
@@ -14,7 +14,7 @@ class Role extends Model
      *
      * @var string
      */
-    protected $table = 'role';
+    protected $table = 'position';
 
     /**
      * The attributes that are mass assignable.
@@ -22,6 +22,6 @@ class Role extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'type'
+        'role'
     ];
 }
